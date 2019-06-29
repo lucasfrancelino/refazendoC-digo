@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Disciplina {
     private String disciplina;
     private double nota;
@@ -18,5 +20,19 @@ public class Disciplina {
 
     public void setNota(double nota) {
         this.nota = nota;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Disciplina that = (Disciplina) o;
+        return Double.compare(that.nota, nota) == 0 &&
+                Objects.equals(disciplina, that.disciplina);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(disciplina, nota);
     }
 }

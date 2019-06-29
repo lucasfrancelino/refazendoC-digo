@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Aluno {
 
@@ -23,5 +24,19 @@ public class Aluno {
 
     public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Aluno aluno = (Aluno) o;
+        return Objects.equals(nome, aluno.nome) &&
+                Objects.equals(disciplinas, aluno.disciplinas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, disciplinas);
     }
 }

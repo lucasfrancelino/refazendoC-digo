@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Professor {
 
     private String nomeProfessor;
-    private String resultado;
+
     private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
     public String getNomeProfessor() {
@@ -28,28 +28,7 @@ public class Professor {
         this.disciplinas = disciplinas;
     }
 
-    public double getMediaNota(){
-        double somaNota = 0.0;
-        for (Disciplina disciplina: disciplinas) {
-            somaNota += disciplina.getNota();
-        }
-        return somaNota/disciplinas.size();
-    }
 
-    public String situacaoAluno(){
-        if (getMediaNota() >= 7){
-            resultado = StatusAluno.APROVADO;
-        }
-
-        if (getMediaNota() <= 6){
-            resultado = StatusAluno.RECUPERACAO;
-        }
-
-        if (getMediaNota() <= 5){
-            resultado = StatusAluno.REPROVADO;
-        }
-        return resultado;
-    }
 
     @Override
     public boolean equals(Object o) {

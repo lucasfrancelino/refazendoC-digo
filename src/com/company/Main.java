@@ -35,7 +35,7 @@ public class Main {
                     double nota;
 
                     System.out.println("Qual a nota do estudante: ");
-                    nota = entrada.nextDouble();
+                    nota = Double.parseDouble(entrada.nextLine());
                     disciplina.setNota(nota);
 
                     aluno.getDisciplinas().add(disciplina);
